@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjar Sauletkali — Engineering & Entrepreneurship</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #06b6d4;
+            --accent-dark: #0891b2;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border: #334155;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* HEADER SECTION */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 50px 40px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95em;
+            color: var(--text-secondary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* MAIN CONTENT */
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2em;
+        }
+
+        /* EXPERIENCE */
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .job-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .company {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .period {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            margin-top: 10px;
+            line-height: 1.7;
+        }
+
+        .achievement {
+            color: var(--success);
+            font-size: 0.95em;
+            margin-top: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .achievement::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* EDUCATION */
+        .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .school {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .degree {
+            color: var(--accent);
+            font-size: 0.95em;
+            margin-bottom: 3px;
+        }
+
+        .year {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* SKILLS */
+        .skills-category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9em;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        /* LANGUAGES */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language-item:last-child {
+            border-bottom: none;
+        }
+
+        .language-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .language-level {
+            color: var(--accent);
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* PROJECTS LINK */
+        .projects-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--primary);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .projects-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--secondary);
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-primary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header {
+                padding: 35px 25px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .contact-info {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .section-title {
+                font-size: 1.1em;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                background: white;
+            }
+
+            .header {
+                border-bottom: 2px solid #000;
+            }
+
+            .skill-tag:hover {
+                background: rgba(6, 182, 212, 0.15);
+                color: var(--accent);
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Sauletkali Sanjar Rauanuly</h1>
+                <p class="title">Robotics Engineer & Entrepreneur</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:s.sauletkali.r@gmail.com" style="color: var(--text-secondary); text-decoration: none;">s.sauletkali.r@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>+7 701 027 2817</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Almaty, Kazakhstan</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💻</span>
+                        <a href="https://github.com/Sanzh1r" style="color: var(--accent); text-decoration: none;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <!-- EXPERIENCE -->
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Founder & CEO</span>
+                        <span class="company">Nomad Tyres</span>
+                        <span class="period">Mar 2025 – Present</span>
+                    </div>
+                    <p class="description">
+                        Wholesale and retail tire sales across Kazakhstan. Managing inventory, market expansion, and digital presence across multiple platforms (Kolesa.kz, Kaspi.kz).
+                    </p>
+                    <p class="achievement">Scaled operations nationwide with focus on customer acquisition and platform growth</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Senior Data Specialist (National)</span>
+                        <span class="company">SAN Tyres</span>
+                        <span class="period">Jan – Aug 2025</span>
+                    </div>
+                    <p class="description">
+                        Led data collection and organization across Kazakhstan. Oversaw process optimization and problem resolution at scale.
+                    </p>
+                    <p class="achievement">Managed nationwide operations and identified efficiency improvements</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Senior (Almaty Regional)</span>
+                        <span class="company">SAN Tyres</span>
+                        <span class="period">Jun – Aug 2024</span>
+                    </div>
+                    <p class="description">
+                        Oversaw quality assurance and timeline compliance for regional operations. Managed data collection and analytics processes.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Sales Manager</span>
+                        <span class="company">SAN Tyres</span>
+                        <span class="period">Sep – Dec 2024</span>
+                    </div>
+                    <p class="description">
+                        Drove sales strategy and customer relationship management. Coordinated market expansion initiatives.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Market Analyst & Data Specialist</span>
+                        <span class="company">SAN Tyres</span>
+                        <span class="period">Mar – May 2024</span>
+                    </div>
+                    <p class="description">
+                        Conducted competitive analysis and organized market data. Demonstrated attention to detail by completing deliverables ahead of schedule.
+                    </p>
+                    <p class="achievement">Delivered analysis ahead of deadline with exceptional accuracy</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <span class="job-title">Assistant Director</span>
+                        <span class="company">emQymyz</span>
+                        <span class="period">Sep – Dec 2023</span>
+                    </div>
+                    <p class="description">
+                        Supported market entry across marketing, location selection, recruitment, and competitive analysis. Successfully launched company to market from zero.
+                    </p>
+                    <p class="achievement">Led market entry strategy resulting in successful product launch</p>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+
+                <div class="education-item">
+                    <p class="school">Kazakh-British Technical University (KBTU)</p>
+                    <p class="degree">Robotics & Mechatronics</p>
+                    <p class="year">In Progress (Expected 2027)</p>
+                </div>
+
+                <div class="education-item">
+                    <p class="school">Bilim Innovation Lyceum-Boarding School (КТЛ)</p>
+                    <p class="degree">Secondary Education</p>
+                    <p class="year">Graduated 2023</p>
+                </div>
+            </div>
+
+            <!-- TECHNICAL SKILLS -->
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+
+                <div class="skills-category">
+                    <p class="category-title">Programming & Development</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Algorithms & Data Structures</span>
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">Linux (Ubuntu)</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <p class="category-title">Robotics & Automation</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Robotics</span>
+                        <span class="skill-tag">Mobile Robot Control (UGV)</span>
+                        <span class="skill-tag">ROS 2</span>
+                        <span class="skill-tag">PID Regulators</span>
+                        <span class="skill-tag">Microcontrollers (ESP32)</span>
+                        <span class="skill-tag">UART & GPIO Interfaces</span>
+                        <span class="skill-tag">Hardware Integration</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <p class="category-title">Computer Vision & Signal Processing</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">MediaPipe</span>
+                        <span class="skill-tag">ArUco Markers</span>
+                        <span class="skill-tag">Image Processing</span>
+                        <span class="skill-tag">Video Stream Processing</span>
+                        <span class="skill-tag">Vision Systems</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <p class="category-title">Engineering & Manufacturing</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">3D Scanning</span>
+                        <span class="skill-tag">3D Printing & Monitoring</span>
+                        <span class="skill-tag">Electronics Fundamentals</span>
+                        <span class="skill-tag">Automation Systems</span>
+                        <span class="skill-tag">System Debugging & Testing</span>
+                        <span class="skill-tag">Technical Documentation</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <p class="category-title">Project Management & Business</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Project Planning</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Technical Presentations</span>
+                        <span class="skill-tag">R&D</span>
+                        <span class="skill-tag">Business Management</span>
+                        <span class="skill-tag">Sales & Negotiations</span>
+                        <span class="skill-tag">Market Analysis</span>
+                        <span class="skill-tag">Data-Driven Decision Making</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LANGUAGES -->
+            <div class="section">
+                <h2 class="section-title">Languages</h2>
+
+                <div class="language-item">
+                    <span class="language-name">Kazakh</span>
+                    <span class="language-level">Native</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Russian</span>
+                    <span class="language-level">Native</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">English</span>
+                    <span class="language-level">B2 (Upper-Intermediate)</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Turkish</span>
+                    <span class="language-level">A2 (Elementary)</span>
+                </div>
+            </div>
+
+            <!-- PROJECTS -->
+            <div class="section">
+                <h2 class="section-title">University Projects</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">
+                    Robotics projects, sensor fusion implementations, computer vision systems, and autonomous vehicle research. Full project portfolio available on GitHub.
+                </p>
+                <a href="https://github.com/Sanzh1r" class="projects-link">View GitHub Portfolio →</a>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>
+                <strong>Sanjar Sauletkali</strong> — Robotics Engineer & Entrepreneur<br>
+                <a href="mailto:s.sauletkali.r@gmail.com">s.sauletkali.r@gmail.com</a> | 
+                <a href="tel:+77010272817">+7 701 027 2817</a> | 
+                <a href="https://github.com/Sanzh1r">GitHub</a>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85em;">
+                Last updated June 2026
+            </p>
+        </div>
+    </div>
+</body>
+</html>
